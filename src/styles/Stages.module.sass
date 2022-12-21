@@ -1,0 +1,93 @@
+@keyframes currentStage
+    from
+        height: 18px
+        opacity: 0
+
+    to
+        height: 118px
+        opacity: 1
+        
+@keyframes slotStages
+    from
+        height: 10px
+        opacity: 0
+
+    to
+        height: 45px
+        opacity: 1
+
+@keyframes text
+    from
+        opacity: 0
+    to
+        opacity: 1
+
+
+
+.stage
+    z-index: 9
+    position: absolute
+    align-self: center
+    justify-self: center
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 500px
+    height: auto
+    padding: 16px
+    gap: 32px
+    left: 50%
+    top: calc(100vh - 800px)
+    transform: translate(-50%,0)
+    // margin-top: -100px
+    filter: drop-shadow(0px 0px 100px black)
+
+    h2,h3
+        color: white
+        font-weight: 500
+        font-style: italic
+        margin-top: 12px
+        text-align: center
+        animation: text 0.5s ease forwards
+
+    div
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+
+
+    .currentStage
+        width: 300px
+        animation: currentStage 0.5s ease forwards
+        outline: 2px solid crimson
+
+
+    ul
+        gap: 4px
+        justify-content: center
+        align-items: center
+        display: flex
+        flex-wrap: wrap
+
+
+        li
+            overflow: hidden
+            cursor: pointer
+            outline: 1px solid crimson
+            list-style: none
+            transition: 0.1s
+            &:hover
+                transform: scale(1.12)
+            img
+                transform: scale(1.25)
+                width: calc(100px - 10px)
+                animation: slotStages 0.5s ease forwards
+
+
+
+@media screen and ( max-height: 800px )
+    .stage
+        top: calc(100vh - 700px)
+
+

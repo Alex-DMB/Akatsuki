@@ -1,0 +1,70 @@
+@use 'mixins'    
+
+
+
+
+
+@keyframes redLight 
+    from
+        opacity: 0
+        height: 0px
+    to
+        opacity: 1
+        height: 500px
+
+
+@keyframes nameContainerAni
+    from 
+        width: 1px
+    to
+        width: 300px
+
+.player
+    .redLight
+        animation: redLight 0.2s linear forwards
+        position: absolute
+        bottom: 225px
+        width: 320px
+        z-index: -1
+        background: linear-gradient(to top,transparent, crimson, transparent)
+        filter: blur(2px)
+
+
+    img
+        position: absolute
+        -webkit-mask-image: linear-gradient(to top, transparent 15%,black, black 100%)
+
+
+
+
+    .name
+
+        @include mixins.container()
+        box-shadow: 0px -10px 100px 5px crimson
+        animation: nameContainerAni 0.5s ease forwards
+        height: 84px
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        h3,h1
+            color: white
+            text-transform: uppercase
+
+
+        h3
+            font-weight: 200
+        
+        h1
+            font-weight: 500
+
+
+@media screen and ( max-height: 800px )
+
+    .player
+
+        &::before
+            height: 400px
+            
+        img
+            margin-bottom: -100px
+    
